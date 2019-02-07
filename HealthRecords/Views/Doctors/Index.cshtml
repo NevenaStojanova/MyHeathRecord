@@ -3,68 +3,96 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-offset-2">
 
-<h2>DOCTORS</h2>
-@if (User.IsInRole("Admin"))
-{
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-}
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Age)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Embg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th></th>
-    </tr>
+        <br>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Age)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Embg)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @if (User.IsInRole("Patient"))
+        @if (User.IsInRole("Admin"))
     {
-        @Html.ActionLink("Details", "Details", new { id = item.Id })
-                @Html.ActionLink("Request an Appointment", "RequestAppointment", "Appointments", new { id = item.Id }, null)
 
-    }
-            @if(User.IsInRole("Doctor"))
-                { 
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) 
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        }
-        </td>
+        
+            
+                @Html.ActionLink(" ", "Create", null, new { @class="glyphicon glyphicon-plus", @style= "color: rgba(243, 16, 171, 0.8); text-decoration: none; font-size: 25px;" })
+                   
+                      
 
-    </tr>
-}
-    
+            }
+            <h2 style="color:rgba(243, 16, 171, 0.8); font-weight: 700; display:inline-block;">DOCTORS</h2>
+            <br>
+            <table class="table" id="doctorsTable">
+                <thead>
+                    <tr style="color: rgba(243, 16, 171, 0.8)">
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Surname)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Age)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Embg)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
 
-</table>
+                    @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Age)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Embg)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @if (User.IsInRole("Patient"))
+                        {
+                            
+
+                                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class= "glyphicon glyphicon-book btn", @style= "color: rgba(243, 16, 171, 0.8);" })
+                          
+
+                         
+
+                                @Html.ActionLink(" ", "RequestAppointment", "Appointments", new { id = item.Id }, new { @class= "glyphicon glyphicon-envelope btn", @style= "color: rgba(243, 16, 171, 0.8);" })
+                            
+                    }
+                            @if (User.IsInRole("Doctor"))
+                        {
+                            
+                                @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class= "glyphicon glyphicon-pencil btn", @style= "color: rgba(243, 16, 171, 0.8);" })
+                          
+                            
+                                @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class= "glyphicon glyphicon-book btn", @style= "color: rgba(243, 16, 171, 0.8);" })
+                            
+                            
+                                @Html.ActionLink(" ", "Delete", new { id = item.Id }, new { @class= "glyphicon glyphicon-remove btn", @style= "color: rgba(243, 16, 171, 0.8);" })
+                            
+                    }
+                        </td>
+
+                    </tr>
+            }
+                </tbody>
+
+
+            </table>
+    </div>
+</div>

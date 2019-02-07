@@ -31,6 +31,13 @@
             color: white;
         }
 
+        .hover, #doctorsA, #patientsA {
+            background-color: transparent;
+        }
+        #doctorsA:hover, #patientsA a:hover {
+                background-color: transparent;
+            }
+
     </style>
 
 </head>
@@ -52,21 +59,21 @@
                         @if (User.IsInRole("Doctor"))
                         {
                             // <li>@Html.ActionLink("Doctors", "Index", "Doctors")</li>
-                            <li>@Html.ActionLink("Patients", "Index", "Patients", new { @style = "color: white" })</li>
-                            <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", new { @style = "color: white" }))</li>
-                            <li>@Html.ActionLink("Medicines", "Index", "Medicines", new { @style = "color: white" }))</li>
+                            <li>@Html.ActionLink("Patients", "Index", "Patients", new { @style = "color: white", @class="hover" })</li>
+                            <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", new { @style = "color: white", @class = "hover" })</li>
+                            <li>@Html.ActionLink("Medicines", "Index", "Medicines", new { @style = "color: white", @class = "hover" })</li>
 
-                            <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", new { @style = "color: white" }))</li>
+                            <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", new { @style = "color: white", @class = "hover" })</li>
 
 
                         }
                         @if (User.IsInRole("Patient"))
                         {
-                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", new { @style = "color: white" }))</li>
+                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", new { @style = "color: white", @class = "hover" }))</li>
                             <li>@Html.ActionLink("Medicines", "Index", "Medicines")</li>
-                            <li>@Html.ActionLink("My Diagnoses", "ShowDiagnoses", "Diagnoses", new { @style = "color: white" }))</li>
-                            <li>@Html.ActionLink("My Receipts", "ShowReceipts", "Receipts", new { @style = "color: white" }))</li>
-                            <li>@Html.ActionLink("My Requests", "ShowAppointmentsPatient", "Appointments", new { @style = "color: white" }))</li>
+                            <li>@Html.ActionLink("My Diagnoses", "ShowDiagnoses", "Diagnoses", new { @style = "color: white", @class = "hover" }))</li>
+                            <li>@Html.ActionLink("My Receipts", "ShowReceipts", "Receipts", new { @style = "color: white", @class = "hover" }))</li>
+                            <li>@Html.ActionLink("My Requests", "ShowAppointmentsPatient", "Appointments", new { @style = "color: white", @class = "hover" }))</li>
 
 
 
@@ -74,8 +81,8 @@
                         @if (User.IsInRole("Admin"))
                         {
 
-                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", new { @style = "color: white" }))</li>
-                            <li>@Html.ActionLink("Patients", "Index", "Patients", new { @style = "color: white" }))</li>
+                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white", id="doctorsA" })</li>
+                            <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white", id="patientsA"})</li>
 
 
 
