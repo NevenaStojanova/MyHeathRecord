@@ -34,8 +34,10 @@
         }
 
     .wrapper {
-        margin-top: 80px;
+        margin-top: 30px;
         margin-bottom: 80px;
+        height: 100%;
+        overflow: hidden
     }
 
     .form-signin {
@@ -44,9 +46,9 @@
         margin: 0 auto;
         background-color: #fff;
         border: 1px solid rgba(0,0,0,0.1);
-        .form-signin-heading, .checkbox
-
-    {
+    }
+        
+    .form-signin-heading, .checkbox{
         margin-bottom: 30px;
     }
 
@@ -60,13 +62,13 @@
         height: auto;
         padding: 10px;
         include box-sizing(border-box);
-        &:focus
-
-    {
+    }
+        
+    &:focus{
         z-index: 2;
     }
 
-    }
+    
 
     input[type="text"] {
         margin-bottom: -1px;
@@ -79,42 +81,70 @@
         border-top-left-radius: 0;
         border-top-right-radius: 0;
     }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            box-shadow: 0 0 5px rgba(243, 16, 171, 0.8);
+            
+            border: 1px solid rgba(243, 16, 171, 0.8);
+        }
     
-    }
+    
 
 </style>
 
 
-<div class="wrapper">
+<div class="wrapper"  >
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-<form class="row">
+<div class="row">
+    <div class="col-md-offset-4 col-md-5">
 
-        <h2 class="form-signin-heading">Please login</h2>
+<form >
+
+           <div class="row">
+               <div class="col-md-offset-3 col-md-6">
+                   <h2 class="form-signin-heading" style="color: rgba(243, 16, 171, 0.8); font-weight:800; padding: 0; font-size: 40px; margin: 10px;">Sign Up</h2>
+               </div>
+           </div>
         <hr />
-        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email Address", type = "text", name = "username", required = "", autofocus = "" })
+    <br />
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email Address", type = "text", name = "username", required = "", autofocus = ""})
         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                <br>
 
-
-        @Html.PasswordFor(m => m.Password, new { @class = "form-control", type = "password", name = "password", placeholder = "Password", required = "" })
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", type = "password", name = "password", placeholder = "Password", required = ""})
         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-
-        <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-primary" id="fancy-checkbox-primary" autocomplete="off" />
-            <div class="[ btn-group ]">
-                <label for="fancy-checkbox-primary" class="[ btn btn-primary ]">
-                    <span class="[ glyphicon glyphicon-ok ]"></span>
-                    <span> </span>
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                </label>
-                @Html.LabelFor(m => m.RememberMe, new { @class = "[ btn btn-default active ]", @for = "fancy-checkbox-primary", })
+                </div>
             </div>
-        </div>
 
-        <input type="submit" value="Log in" class="btn btn-lg btn-primary btn-block" />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
- </form>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-6" style="padding-left: 33px;">
+                <div class="[ form-group ]">
+                    <input type="checkbox" name="fancy-checkbox-primary" id="fancy-checkbox-primary" autocomplete="off" />
+                    <div class="[ btn-group ]">
+                        <label for="fancy-checkbox-primary" class="[ btn btn-primary ]" style="width: 45px; background-color: rgba(243, 16, 171, 0.8); border-color: rgba(243, 16, 171, 0.8)">
+                            <span class="[ glyphicon glyphicon-ok ]"></span>
+                            <span> </span>
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                        </label>
+                        @Html.LabelFor(m => m.RememberMe, new { @class = "[ btn btn-default active ]", @for = "fancy-checkbox-primary", @style= "background-color: rgba(243, 16, 171, 0.2); color: rgba(243, 16, 171, 1); border-color: rgba(243, 16, 171, 0.2); font-weight: 600" })
+                    </div>
+                </div>
+                </div>
+            </div>
+    <br>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <input type="submit" value="Log in" class="btn btn-lg btn-primary btn-block" style="background-color: rgba(243, 16, 171, 0.8); border-color: rgba(243, 16, 171, 0.8)" />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            </div>
+</form>
+        </div>
+    </div>
         
     }
 </div>
