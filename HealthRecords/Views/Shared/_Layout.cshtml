@@ -4,9 +4,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            
+            text-align: center;
+            text-decoration: none;
+            
+            margin: auto;
+            
+            
+        }
+            .fa:hover {
+                color: rgba(243, 16, 171, 0.8);
+                opacity: 0.7;
+                /**/
+            }
+
+        .fa-facebook, .fa-twitter, .fa-google, .fa-linkedin, .fa-instagram {
+            color: white;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -63,10 +88,28 @@
     </div>
     <div class="container body-content" style="padding: 0; margin: 0;">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        
+        <!-- Footer -->               
+
+        <footer class="navbar-default navbar-fixed-bottom navbar-inverse" style="background-color: rgb(28, 23, 53);">
+            <div class="row">
+                <div class="col-md-offset-4 col-md-8">
+                    <a href="#" class="fa fa-facebook" style="text-decoration:none;"></a>
+                    <a href="#" class="fa fa-twitter" style="text-decoration:none;"></a>
+                    <a href="#" class="fa fa-linkedin" style="text-decoration:none;"></a>
+                    <a href="#" class="fa fa-instagram" style="text-decoration:none;"></a>
+                    <a href="#" class="fa fa-google" style="text-decoration:none;"></a>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-md-offset-4 col-md-7" style="padding-left: 60px;">
+                    <span style="color: white;">© 2018 Copyright: MyHealthRecordsInc.</span>
+                </div>
+                </div>
+</footer>
+        <!-- Footer -->
     </div>
 
     @Scripts.Render("~/bundles/jquery")
