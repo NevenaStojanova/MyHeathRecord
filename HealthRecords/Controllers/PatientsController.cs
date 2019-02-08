@@ -37,6 +37,10 @@ namespace HealthRecords.Controllers
             Doctor doctor = db.Doctors.Where(z => z.Embg.Equals(user.Embg)).FirstOrDefault();
             List<Patient> pacienti = db.Patients.Where(z => z.Doctor.Id.Equals(doctor.Id)).ToList();
             return View(pacienti);
+            if (pacienti.Count == 0)
+            {
+                return View("Index");
+            }
         }
 
 
