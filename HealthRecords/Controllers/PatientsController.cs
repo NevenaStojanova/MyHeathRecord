@@ -59,7 +59,7 @@ namespace HealthRecords.Controllers
             }
             return View(patient);
         }
-        [Authorize(Roles ="Doctor")]
+        [Authorize(Roles ="Doctor, Admin")]
         // GET: Patients/Create
         public ActionResult Create()
         {
@@ -71,7 +71,7 @@ namespace HealthRecords.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Doctor")]
+        [Authorize(Roles = "Doctor, Admin")]
         public ActionResult Create([Bind(Include = "Id,Name,Surname,Age,Address,Embg")] Patient patient)
         {
             if (ModelState.IsValid)

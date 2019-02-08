@@ -10,7 +10,7 @@
             <h4 style="color: rgba(243, 16, 171, 0.8)">Change your account settings</h4>
             <hr />
             <dl class="dl-horizontal">
-                <dt>Password:</dt>
+                <dt style="color: rgba(243, 16, 171, 0.8)">Password:</dt>
                 <dd>
                     [
                     @if (Model.HasPassword)
@@ -23,7 +23,7 @@
         }
                     ]
                 </dd>
-                <dt>External Logins:</dt>
+                <dt style="color: rgba(243, 16, 171, 0.8)">External Logins:</dt>
                 <dd>
                     @Model.Logins.Count [
                     @Html.ActionLink("Manage", "ManageLogins") ]
@@ -56,7 +56,7 @@
                     }
                 </dd>
                 *@
-                <dt>Two-Factor Authentication:</dt>
+                <dt style="color: rgba(243, 16, 171, 0.8)">Two-Factor Authentication:</dt>
                 <dd>
                     <p>
                         There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
