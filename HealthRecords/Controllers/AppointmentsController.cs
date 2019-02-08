@@ -47,6 +47,10 @@ namespace HealthRecords.Controllers
             Doctor doctor = db.Doctors.Where(z => z.Embg.Equals(user.Embg)).FirstOrDefault();
             List<Appointment> appointments = db.Appointments.Where(z => z.doctor.Id.Equals(doctor.Id)).ToList();
             return View(appointments);
+            if (appointments.Count == 0)
+            {
+                return View("Index");
+            }
         }
         [Authorize(Roles ="Patient")]
         public ActionResult ShowAppointmentsPatient()
@@ -55,6 +59,7 @@ namespace HealthRecords.Controllers
             Patient patient = db.Patients.Where(z => z.Embg.Equals(user.Embg)).FirstOrDefault();
             List<Appointment> appointments = db.Appointments.Where(z => z.patient.Id.Equals(patient.Id)).ToList();
             return View(appointments);
+
         }
         [HttpPost]
         [Authorize(Roles ="Patient")]
