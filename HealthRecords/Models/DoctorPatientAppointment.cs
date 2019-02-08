@@ -11,8 +11,10 @@ namespace HealthRecords.Models
         public int DoctorId { get; set; }
         public int PatientId { get; set; }
         [Required]
+        [Display(Name ="Name")]
         public string FirstName { get; set; }
         [Required]
+        [Display(Name = "Surname")]
         public string LastName { get; set; }
         [Required]
         public int Age { get; set; }

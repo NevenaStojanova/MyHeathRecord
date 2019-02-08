@@ -32,11 +32,11 @@
         }
 
         .hover, #doctorsA, #patientsA, #doctorsP, #medicinesP, #diagnosesP, #receiptsP, #appointmentsP, #patientsD,
-        #mypatientsD, #mediciesD {
+        #mypatientsD, #mediciesD, #appointmentsD {
             background-color: transparent;
         }
             #doctorsA a:hover, #patientsA a:hover, #doctorsP a:hover, #medicinesP a:hover, #diagnosesP a:hover, #receiptsP a:hover, #appointmentsP a:hover,
-            #patientsD a:hover, #mypatientsD a:hover, #mediciesD a:hover {
+            #patientsD a:hover, #mypatientsD a:hover, #mediciesD a:hover, #appointmentsD a:hover {
                 background-color: transparent;
             }
 
@@ -65,7 +65,7 @@
                             <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", null, new { @style = "color: white", id="mypatientsD" })</li>
                             <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white", id="mediciesD" })</li>
 
-                            <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", new { @style = "color: white", @class = "hover" })</li>
+                            <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", null, new { @style = "color: white", id= "appointmentsD" })</li>
 
 
                         }

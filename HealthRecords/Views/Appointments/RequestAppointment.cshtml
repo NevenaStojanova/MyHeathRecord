@@ -4,39 +4,63 @@
 
     ViewBag.Title = "RequestAppointment";
 }
+<style>
+    input[type="text"]:focus, input[type="numbers"]:focus, input[type="submit"]:focus {
+        box-shadow: 0 0 5px rgba(243, 16, 171, 0.8);
+        border: 1px solid rgba(243, 16, 171, 0.8);
+    }
+</style>
 
-<h2>Request Appointment</h2>
+<div class="row" style="margin-top: 50px;">
+    <div class="col-md-offset-4 col-md-9 col-lg-offset-4 col-lg-5 col-sm-offset-3 col-sm-9">
+        <h2 class="form-signin-heading" style="color: rgba(243, 16, 171, 0.8); font-weight:800; padding: 0; font-size: 30px; margin: 10px;">
+            @Html.ActionLink(" ", "Index", "Doctors", null, new { @class = "glyphicon glyphicon-arrow-left", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px; text-decoration: none; margin-right: 10px; margin-left: 10px;" })
 
-@using (Html.BeginForm("RequestAppointment", "Appointments"))
-{
-    <div class="form-group">
-        @Html.LabelFor(m => m.FirstName)
-        @Html.TextBoxFor(m => m.FirstName)
-        @Html.ValidationMessageFor(m => m.FirstName)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName)
-        @Html.TextBoxFor(m => m.LastName)
-        @Html.ValidationMessageFor(m => m.LastName)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Age)
-        @Html.TextBoxFor(m => m.Age)
-        @Html.ValidationMessageFor(m => m.Age)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Date)
-        @Html.ValidationMessageFor(m => m.Date)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Condition)
-        @Html.TextBoxFor(m => m.Condition)
-        @Html.ValidationMessageFor(m => m.Condition)
-    </div>
-    @Html.HiddenFor(m => m.PatientId)
-    @Html.HiddenFor(m => m.DoctorId)
-
-    <button type="submit" class="btn btn-primary">REQUEST</button>
+            Request Appointment
+        </h2>
+        <hr>
+        <br>
+        <div class="text-center">
+        @using (Html.BeginForm("RequestAppointment", "Appointments"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.FirstName, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
+            @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.FirstName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.LastName, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
+            @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Age, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
+            @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Age)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Date, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
+            @Html.EditorFor(m => m.Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Date)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Condition, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
+            @Html.EditorFor(m => m.Condition, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Condition)
+        </div>
+        @Html.HiddenFor(m => m.PatientId)
+        @Html.HiddenFor(m => m.DoctorId)
+        <div class="row">
+            <div  >
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10" >
+                        <input type="submit" value="Submit" class="btn btn-default" style="background-color: rgba(243, 16, 171, 0.8); color: white; border-color: rgba(243, 16, 171, 0.8); width: 100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
 }
+            </div>
+    </div>
+    </div>
 

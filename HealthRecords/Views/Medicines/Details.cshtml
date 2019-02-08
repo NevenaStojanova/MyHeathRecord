@@ -4,39 +4,48 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="row" style="margin-top: 50px;">
+    <div class="col-md-offset-4 col-md-9 col-lg-offset-4 col-lg-5 col-sm-offset-3 col-sm-9">
 
-<div>
-    <h4>Medicine</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+        <h2 style="text-align:center;  color : rgba(243, 16, 171, 0.8); font-weight:600; padding: 0; font-size: 30px; margin: 10px;">
+            @if (User.IsInRole("Doctor"))
+    {
+        @Html.ActionLink(" ", "Edit", new { id = Model.Id }, new { @class = "glyphicon glyphicon-pencil", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px;  text-decoration: none; margin-right: 10px; margin-left: 10px;" })
+}
+            @Html.ActionLink(" ", "Index", null, new { @class = "glyphicon glyphicon-arrow-left", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px; text-decoration: none; margin-right: 10px; margin-left: 10px;" })
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            Details
+        </h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+        <div class="col-md-offset-2">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+                <dd  style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+                <dd  style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd  style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+            </dl>
+        </div>
+        
+        </div>
+    </div>
