@@ -5,7 +5,13 @@
 
 <div class="row" style="margin-top: 50px;">
     <div class="col-md-offset-3 col-md-8">
-        <p class="text-success">@ViewBag.StatusMessage</p>
+        @if (@ViewBag.StatusMessage == "Your password has been changed.")
+    {
+        <p class="text-success alert alert-success">
+            @ViewBag.StatusMessage
+        </p>
+}
+       
         <div>
             <h4 style="color: rgba(243, 16, 171, 0.8)">Change your account settings</h4>
             <hr />
@@ -87,5 +93,7 @@
         </div>
     </div>
 </div>
+
+
 
 
