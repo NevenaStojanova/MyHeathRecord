@@ -32,11 +32,11 @@
         }
 
         .hover, #doctorsA, #patientsA, #doctorsP, #medicinesP, #diagnosesP, #receiptsP, #appointmentsP, #patientsD,
-        #mypatientsD, #mediciesD, #appointmentsD {
+        #mypatientsD, #mediciesD, #appointmentsD, #addA {
             background-color: transparent;
         }
             #doctorsA a:hover, #patientsA a:hover, #doctorsP a:hover, #medicinesP a:hover, #diagnosesP a:hover, #receiptsP a:hover, #appointmentsP a:hover,
-            #patientsD a:hover, #mypatientsD a:hover, #mediciesD a:hover, #appointmentsD a:hover {
+            #patientsD a:hover, #mypatientsD a:hover, #mediciesD a:hover, #appointmentsD a:hover, #addA a:hover {
                 background-color: transparent;
             }
 
@@ -59,36 +59,37 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @if (User.IsInRole("Doctor"))
-                        {
-                            // <li>@Html.ActionLink("Doctors", "Index", "Doctors")</li>
-                            <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white; font-size: 15px;", id="patientsD" })</li>
-                            <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", null, new { @style = "color: white;font-size: 15px;", id="mypatientsD" })</li>
-                            <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white; font-size: 15px;", id="mediciesD" })</li>
+    {
+        // <li>@Html.ActionLink("Doctors", "Index", "Doctors")</li>
+                    <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white; font-size: 15px;", id = "patientsD" })</li>
+                    <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", null, new { @style = "color: white;font-size: 15px;", id = "mypatientsD" })</li>
+                    <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white; font-size: 15px;", id = "mediciesD" })</li>
 
-                            <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", null, new { @style = "color: white; font-size: 15px;", id= "appointmentsD" })</li>
+                    <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", null, new { @style = "color: white; font-size: 15px;", id = "appointmentsD" })</li>
 
 
-                        }
+}
                         @if (User.IsInRole("Patient"))
-                        {
-                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 15px;", id="doctorsP" })</li>
-                            <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white;font-size: 15px;", id = "medicinesP" })</li>
-                            <li>@Html.ActionLink("My Diagnoses", "ShowDiagnoses", "Diagnoses", null, new { @style = "color: white;font-size: 15px;", id="diagnosesP" })</li>
-                            <li>@Html.ActionLink("My Receipts", "ShowReceipts", "Receipts", null, new { @style = "color: white;font-size: 15px;", id="receiptsP" })</li>
-                            <li>@Html.ActionLink("My Requests", "ShowAppointmentsPatient", "Appointments", null,  new { @style = "color: white;font-size: 15px;", id="appointmentsP" })</li>
+    {
+                    <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 15px;", id = "doctorsP" })</li>
+                    <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white;font-size: 15px;", id = "medicinesP" })</li>
+                    <li>@Html.ActionLink("My Diagnoses", "ShowDiagnoses", "Diagnoses", null, new { @style = "color: white;font-size: 15px;", id = "diagnosesP" })</li>
+                    <li>@Html.ActionLink("My Receipts", "ShowReceipts", "Receipts", null, new { @style = "color: white;font-size: 15px;", id = "receiptsP" })</li>
+                    <li>@Html.ActionLink("My Requests", "ShowAppointmentsPatient", "Appointments", null, new { @style = "color: white;font-size: 15px;", id = "appointmentsP" })</li>
 
 
 
-                        }
+}
                         @if (User.IsInRole("Admin"))
-                        {
+    {
 
-                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 18px;", id="doctorsA" })</li>
-                            <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white;font-size: 18px;", id="patientsA"})</li>
+                    <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 18px;", id = "doctorsA" })</li>
+                    <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white;font-size: 18px;", id = "patientsA" })</li>
+                    <li>@Html.ActionLink("Add Role", "AddUserToRole", "Account", null, new { @style = "color: white;font-size: 18px;", id = "addA" })</li>
 
 
 
-                        }
+}
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
