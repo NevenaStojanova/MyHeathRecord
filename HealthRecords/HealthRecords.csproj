@@ -321,6 +321,10 @@
     <Compile Include="Migrations\201902031427225_AppointmentUpdate.Designer.cs">
       <DependentUpon>201902031427225_AppointmentUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902091244511_resetpasswrod.cs" />
+    <Compile Include="Migrations\201902091244511_resetpasswrod.Designer.cs">
+      <DependentUpon>201902091244511_resetpasswrod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddUserToRole.cs" />
@@ -533,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902031427225_AppointmentUpdate.resx">
       <DependentUpon>201902031427225_AppointmentUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902091244511_resetpasswrod.resx">
+      <DependentUpon>201902091244511_resetpasswrod.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

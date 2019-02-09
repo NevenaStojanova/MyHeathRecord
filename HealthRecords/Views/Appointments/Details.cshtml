@@ -3,56 +3,66 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="row" style="margin-top: 50px;">
+    <div class="col-md-offset-4 col-md-9 col-lg-offset-4 col-lg-5 col-sm-offset-3 col-sm-9">
 
-<h2>Details</h2>
+        <h2 style="text-align:center;  color : rgba(243, 16, 171, 0.8); font-weight:600; padding: 0; font-size: 30px; margin: 10px;">
+            @if (User.IsInRole("Admin") || User.IsInRole("Patient"))
+            {
+                @Html.ActionLink(" ", "Index", null, new { @class = "glyphicon glyphicon-arrow-left", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px; text-decoration: none; margin-right: 10px; margin-left: 10px;" })
 
-<div>
-    <h4>Appointment</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+                @Html.ActionLink(" ", "Edit", new { id = Model.Id }, new { @class = "glyphicon glyphicon-pencil", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px;  text-decoration: none; margin-right: 10px; margin-left: 10px;" })
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
+            }
             @Html.DisplayFor(model => model.LastName)
-        </dd>
+        </h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
+        <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Age)
-        </dd>
+            <hr />
+            <dl class="dl-horizontal col-md-offset-2 col-lg-offset-2">
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+                <dd style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Condition)
-        </dt>
+                <dd style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Condition)
-        </dd>
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.Age)
+                </dt>
 
-    </dl>
+                <dd style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.Age)
+                </dd>
+
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
+
+                <dd style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
+
+                <dt style="color:rgba(243, 16, 171, 0.8); font-size: 18px;">
+                    @Html.DisplayNameFor(model => model.Condition)
+                </dt>
+
+                <dd style="font-size: 18px;">
+                    @Html.DisplayFor(model => model.Condition)
+                </dd>
+
+            </dl>
+        </div>
+
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
