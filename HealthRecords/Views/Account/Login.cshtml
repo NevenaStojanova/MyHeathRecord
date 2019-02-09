@@ -87,13 +87,13 @@
             
             border: 1px solid rgba(243, 16, 171, 0.8);
         }
-    
+ 
     
 
 </style>
 
 
-<div class="wrapper"  >
+<div class="wrapper" id="wrap" >
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
