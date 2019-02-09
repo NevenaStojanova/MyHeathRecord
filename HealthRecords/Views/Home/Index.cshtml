@@ -23,15 +23,67 @@
         height: 100%;
         padding: 0;
     }
+    @@media screen and (max-width: 768px) {
+        #title {
+            position: relative;
+            left: 20%;
+            color: rgba(255, 245, 255, 1);
+            font-size: 25px;
+            text-shadow: 5px 5px 5px rgba(80, 63, 191, 0.46);
+            font-family: Calibri;
+            margin: 0;
+            height: 35px;
+        }
+        #helpdesk {
+            position: relative;
+            left: 20%;
+            color: rgba(255, 230, 255, 1);
+            font-size: 16px;
+            font-family: Britannic;
+            margin: 0
+        }
+        #my {
+            font-weight: 500;
+            font-family: Chiller;
+            font-size: 35px;
+        }
+        
+}
+
+    @@media screen and (max-width: 1200px) and (min-width: 768px) {
+        #title {
+        
+            color: rgba(255, 245, 255, 1);
+            font-size: 60px;
+            text-shadow: 5px 5px 5px rgba(80, 63, 191, 0.46);
+            font-family: Calibri;
+            margin: 0;
+            height: 75px;
+        }
+
+        #helpdesk {
+            
+            color: rgba(255, 230, 255, 1);
+            font-size: 40px;
+            font-family: Britannic;
+            margin: 0
+        }
+        #my {
+            font-weight: 800;
+            font-family: Chiller;
+            font-size: 80px;
+        }
+    }
+
 </style>
 
 <div class="background">
     <div class="layer">
         <!--<img src="~/Images/background.jpg" style="position: absolute; height: 100%; width: 100%; top: 0; left: 0;">-->
-        <div class="row" style="position: relative; top: 30%; right: 4%">
-            <div class="col-md-offset-4 col-md-7">
-                <p style="color: rgba(255, 245, 255, 1); font-size: 60px; text-shadow: 5px 5px 5px rgba(80, 63, 191, 0.46); font-family: Calibri; margin: 0; height: 75px; "><span style="font-weight: 800; font-family: Chiller; font-size: 80px;">MY</span>HealthRecords</p>
-                <p style="color: rgba(255, 230, 255, 1); font-size: 40px; font-family: Britannic; margin: 0">Healthcare at your desk!</p>
+        <div class="row" style="position: relative; top: 30%; ">
+            <div class="col-offset-sm-4 col-sm-8  col-md-offset-4 col-md-8 col-lg-offset-4 col-lg-8  ">
+                <p id="title"><span id="my">MY</span>HealthRecords</p>
+                <p id="helpdesk">Healthcare at your desk!</p>
 
             </div>
 
@@ -39,4 +91,5 @@
     </div>
 
 </div>
+    
 
