@@ -80,7 +80,7 @@ namespace HealthRecords.Controllers
                 appointment.doctor = doctor;
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ShowAppointmentsPatient");
 
             }
             return View(model);
