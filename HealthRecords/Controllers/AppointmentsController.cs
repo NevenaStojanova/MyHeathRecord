@@ -172,7 +172,7 @@ namespace HealthRecords.Controllers
         }
 
         // POST: Appointments/Delete/5
-        [Authorize(Roles = "Patient")]
+        [Authorize(Roles = "Patient,Doctor")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

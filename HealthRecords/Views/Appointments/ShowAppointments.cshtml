@@ -33,7 +33,7 @@
 
             @foreach (var item in Model)
             {
-            <tr>
+              <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
@@ -50,8 +50,14 @@
                     @Html.DisplayFor(modelItem => item.Condition)
                 </td>
                
+                <td>
+                <div class="form-group">
+                   <input type="submit" value="DECLINE" id="btn"class="btn btn-default" onclick="location.href='@Url.Action("Delete", "Appointments", new { id = item.Id })'";
+              </div>
+           |     </td>
             </tr>
             }
+
         </table>
         </div>
     </div>
