@@ -26,39 +26,39 @@
         <div class="form-group">
             @Html.LabelFor(m => m.FirstName, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
             @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.FirstName)
+            @Html.ValidationMessageFor(m => m.FirstName, null, htmlAttributes: new { @style="color: red; font-weight: 600;" })
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.LastName, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
             @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.LastName)
+            @Html.ValidationMessageFor(m => m.LastName, null, htmlAttributes: new { @style = "color: red; font-weight: 600;" })
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Age, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
             @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.Age)
+            @Html.ValidationMessageFor(m => m.Age, null, htmlAttributes: new { @style = "color: red; font-weight: 600;" })
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Date, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
-            @Html.EditorFor(m => m.Date, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.Date)
+            @Html.EditorFor(m => m.Date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+            @Html.ValidationMessageFor(m => m.Date, null, htmlAttributes: new { @style = "color: red; font-weight: 600;" })
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Condition, htmlAttributes: new { @class = "control-label col-md-2", @style = "color: rgba(243, 16, 171, 0.8); margin-right: 15px;" })
             @Html.EditorFor(m => m.Condition, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.Condition)
+            @Html.ValidationMessageFor(m => m.Condition, null, htmlAttributes: new { @style = "color: red; font-weight: 600;" })
         </div>
         @Html.HiddenFor(m => m.PatientId)
         @Html.HiddenFor(m => m.DoctorId)
-        <div class="row">
-            <div  >
+        
+           
                 <div class="form-group">
-                    <div class="col-md-offset-1 col-md-10" >
-                        <input type="submit" value="Submit" class="btn btn-default" style="background-color: rgba(243, 16, 171, 0.8); color: white; border-color: rgba(243, 16, 171, 0.8); width: 100%;" />
+                    <div class="col-md-offset-2 col-md-8" >
+                        <button type="submit" class="btn btn-default" style="background-color: rgba(243, 16, 171, 0.8); color: white; border-color: rgba(243, 16, 171, 0.8); width: 100%;">Submit</button>
                     </div>
                 </div>
-            </div>
-        </div>
+            
+        
 }
             </div>
     </div>

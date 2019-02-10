@@ -19,6 +19,7 @@ namespace HealthRecords.Models
         public int Age { get; set; }
         [Required]
         public String Embg { get; set; }
+        public String Experience { get; set; }
         [Required]
         public String Address { get; set; }
         public List<Patient> Patients { get; set; }
