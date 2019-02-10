@@ -26,6 +26,7 @@ namespace HealthRecords.Controllers
 
         }
         // GET: Patients
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Patients.ToList());
