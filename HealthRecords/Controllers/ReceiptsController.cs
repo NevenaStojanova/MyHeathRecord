@@ -65,7 +65,7 @@ namespace HealthRecords.Controllers
                 receipt.Doctor = doctor;
                 db.Receipts.Add(receipt);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyPatients","Patients");
 
             }
             return View(model);
@@ -102,7 +102,7 @@ namespace HealthRecords.Controllers
             {
                 db.Receipts.Add(receipt);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyPatients","Patients");
             }
 
             return View(receipt);

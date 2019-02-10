@@ -55,7 +55,7 @@ namespace HealthRecords.Controllers
                 diagnose.Doctor = doctor;
                 db.Diagnoses.Add(diagnose);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyPatients","Patients");
 
             }
             return View(model);
@@ -102,7 +102,7 @@ namespace HealthRecords.Controllers
             {
                 db.Diagnoses.Add(diagnose);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyPatients", "Patients");
             }
 
             return View(diagnose);

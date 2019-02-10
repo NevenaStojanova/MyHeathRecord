@@ -109,20 +109,20 @@ namespace HealthRecords.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Doctor,Admin")]
+        [Authorize(Roles = "Doctor, Admin")]
         public ActionResult Edit([Bind(Include = "Id,Name,Surname,Age,Address,Embg")] Patient patient)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(patient).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MyPatients");
             }
             return View(patient);
         }
 
         // GET: Patients/Delete/5
-        [Authorize(Roles = "Doctor,Admin")]
+        [Authorize(Roles = "Doctor, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
