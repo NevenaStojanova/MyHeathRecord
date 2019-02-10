@@ -44,12 +44,66 @@
 
 </head>
 <body>
+    @if ((string)ViewContext.RouteData.Values["action"] == "Index" && (string)ViewContext.RouteData.Values["controller"] == "Home")
+    {
+        <nav class="navbar navbar-fixed-top navbar-light" style="background: transparent; ">
+            <div >
+                <div class="container ">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("MYHealthRecords", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color: white; font-size: 20px;" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            @if (User.IsInRole("Doctor"))
+                            {
+                                // <li>@Html.ActionLink("Doctors", "Index", "Doctors")</li>
+                                <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white; font-size: 15px;", id = "patientsD" })</li>
+                                <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", null, new { @style = "color: white;font-size: 15px;", id = "mypatientsD" })</li>
+                                <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white; font-size: 15px;", id = "mediciesD" })</li>
+
+                                <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", null, new { @style = "color: white; font-size: 15px;", id = "appointmentsD" })</li>
+
+
+                            }
+                            @if (User.IsInRole("Patient"))
+                            {
+                                <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 15px;", id = "doctorsP" })</li>
+                                <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white;font-size: 15px;", id = "medicinesP" })</li>
+                                <li>@Html.ActionLink("My Diagnoses", "ShowDiagnoses", "Diagnoses", null, new { @style = "color: white;font-size: 15px;", id = "diagnosesP" })</li>
+                                <li>@Html.ActionLink("My Receipts", "ShowReceipts", "Receipts", null, new { @style = "color: white;font-size: 15px;", id = "receiptsP" })</li>
+                                <li>@Html.ActionLink("My Requests", "ShowAppointmentsPatient", "Appointments", null, new { @style = "color: white;font-size: 15px;", id = "appointmentsP" })</li>
+
+
+
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+
+                                <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 18px;", id = "doctorsA" })</li>
+                                <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white;font-size: 18px;", id = "patientsA" })</li>
+                                <li>@Html.ActionLink("Add Role", "AddUserToRole", "Account", null, new { @style = "color: white;font-size: 18px;", id = "addA" })</li>
+
+
+
+                            }
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>
+        </nav>
+    }else {
     <nav class="navbar navbar-fixed-top navbar-light" style="background: url('../../Images/background.jpg');background-repeat:no-repeat;
         background-size:cover; border: none;">
-        <div style="background-color: rgba(243, 16, 171, 0.2)";>
+        <div style="background-color: rgba(243, 16, 171, 0.2)" ;>
             <div class="container ">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -59,47 +113,49 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @if (User.IsInRole("Doctor"))
-    {
-        // <li>@Html.ActionLink("Doctors", "Index", "Doctors")</li>
-                    <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white; font-size: 15px;", id = "patientsD" })</li>
-                    <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", null, new { @style = "color: white;font-size: 15px;", id = "mypatientsD" })</li>
-                    <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white; font-size: 15px;", id = "mediciesD" })</li>
+                        {
+                            // <li>@Html.ActionLink("Doctors", "Index", "Doctors")</li>
+                            <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white; font-size: 15px;", id = "patientsD" })</li>
+                            <li>@Html.ActionLink("My Patients", "MyPatients", "Patients", null, new { @style = "color: white;font-size: 15px;", id = "mypatientsD" })</li>
+                            <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white; font-size: 15px;", id = "mediciesD" })</li>
 
-                    <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", null, new { @style = "color: white; font-size: 15px;", id = "appointmentsD" })</li>
+                            <li>@Html.ActionLink("Requested Appointments", "ShowAppointments", "Appointments", null, new { @style = "color: white; font-size: 15px;", id = "appointmentsD" })</li>
 
 
-}
+                        }
                         @if (User.IsInRole("Patient"))
-    {
-                    <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 15px;", id = "doctorsP" })</li>
-                    <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white;font-size: 15px;", id = "medicinesP" })</li>
-                    <li>@Html.ActionLink("My Diagnoses", "ShowDiagnoses", "Diagnoses", null, new { @style = "color: white;font-size: 15px;", id = "diagnosesP" })</li>
-                    <li>@Html.ActionLink("My Receipts", "ShowReceipts", "Receipts", null, new { @style = "color: white;font-size: 15px;", id = "receiptsP" })</li>
-                    <li>@Html.ActionLink("My Requests", "ShowAppointmentsPatient", "Appointments", null, new { @style = "color: white;font-size: 15px;", id = "appointmentsP" })</li>
+                        {
+                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 15px;", id = "doctorsP" })</li>
+                            <li>@Html.ActionLink("Medicines", "Index", "Medicines", null, new { @style = "color: white;font-size: 15px;", id = "medicinesP" })</li>
+                            <li>@Html.ActionLink("My Diagnoses", "ShowDiagnoses", "Diagnoses", null, new { @style = "color: white;font-size: 15px;", id = "diagnosesP" })</li>
+                            <li>@Html.ActionLink("My Receipts", "ShowReceipts", "Receipts", null, new { @style = "color: white;font-size: 15px;", id = "receiptsP" })</li>
+                            <li>@Html.ActionLink("My Requests", "ShowAppointmentsPatient", "Appointments", null, new { @style = "color: white;font-size: 15px;", id = "appointmentsP" })</li>
 
 
 
-}
+                        }
                         @if (User.IsInRole("Admin"))
-    {
+                        {
 
-                    <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 18px;", id = "doctorsA" })</li>
-                    <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white;font-size: 18px;", id = "patientsA" })</li>
-                    <li>@Html.ActionLink("Add Role", "AddUserToRole", "Account", null, new { @style = "color: white;font-size: 18px;", id = "addA" })</li>
+                            <li>@Html.ActionLink("Doctors", "Index", "Doctors", null, new { @style = "color: white;font-size: 18px;", id = "doctorsA" })</li>
+                            <li>@Html.ActionLink("Patients", "Index", "Patients", null, new { @style = "color: white;font-size: 18px;", id = "patientsA" })</li>
+                            <li>@Html.ActionLink("Add Role", "AddUserToRole", "Account", null, new { @style = "color: white;font-size: 18px;", id = "addA" })</li>
 
 
 
-}
+                        }
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
         </div>
     </nav>
+    }
+
     <div class="container body-content" style="padding: 0; margin: 0;">
         @RenderBody()
-        
-        <!-- Footer -->               
+
+        <!-- Footer -->
 
         <footer class="navbar-default navbar-fixed-bottom navbar-inverse" style="background-color: rgb(28, 23, 53);">
             <div class="row">
@@ -110,15 +166,15 @@
                     <a href="https://www.instagram.com" class="fa fa-instagram" style="text-decoration:none;"></a>
                     <a href="https://www.google.com" class="fa fa-google" style="text-decoration:none;"></a>
                 </div>
-                
+
             </div>
 
             <div class="row">
                 <div class="col-md-offset-4 col-md-7" style="padding-left: 60px;">
                     <span style="color: white;">© 2018 Copyright: MyHealthRecordsInc.</span>
                 </div>
-                </div>
-</footer>
+            </div>
+        </footer>
         <!-- Footer -->
     </div>
 
