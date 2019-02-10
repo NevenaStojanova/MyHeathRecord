@@ -9,7 +9,7 @@
         <h2 style="text-align:center;  color : rgba(243, 16, 171, 0.8); font-weight:600; padding: 0; font-size: 30px; margin: 10px;">
             @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
     {
-        @Html.ActionLink(" ", "Index", null, new { @class = "glyphicon glyphicon-arrow-left", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px; text-decoration: none; margin-right: 10px; margin-left: 10px;" })
+        @Html.ActionLink(" ", "MyPatients", null, new { @class = "glyphicon glyphicon-arrow-left", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px; text-decoration: none; margin-right: 10px; margin-left: 10px;" })
 
         @Html.ActionLink(" ", "Edit", new { id = Model.Id }, new { @class = "glyphicon glyphicon-pencil", @style = "color: rgba(243, 16, 171, 0.8); font-size: 25px;  text-decoration: none; margin-right: 10px; margin-left: 10px;" })
 

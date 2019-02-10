@@ -180,7 +180,7 @@ namespace HealthRecords.Controllers
             Appointment appointment = db.Appointments.Find(id);
             db.Appointments.Remove(appointment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("ShowAppointmentsPatient");
         }
 
         protected override void Dispose(bool disposing)
