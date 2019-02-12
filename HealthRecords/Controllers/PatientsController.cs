@@ -26,22 +26,23 @@ namespace HealthRecords.Controllers
 
         }
         // GET: Patients
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Doctor")]
         public ActionResult Index()
         {
             return View(db.Patients.ToList());
         }
-
+        
         public ActionResult MyPatients()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
             Doctor doctor = db.Doctors.Where(z => z.Embg.Equals(user.Embg)).FirstOrDefault();
             List<Patient> pacienti = db.Patients.Where(z => z.Doctor.Id.Equals(doctor.Id)).ToList();
-            return View(pacienti);
             if (pacienti.Count == 0)
             {
                 return View("Index");
-            }
+            } 
+           else  return View(pacienti);
+          
         }
 
 

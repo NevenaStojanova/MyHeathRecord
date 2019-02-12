@@ -46,11 +46,12 @@ namespace HealthRecords.Controllers
             var user = UserManager.FindById(User.Identity.GetUserId());
             Doctor doctor = db.Doctors.Where(z => z.Embg.Equals(user.Embg)).FirstOrDefault();
             List<Appointment> appointments = db.Appointments.Where(z => z.doctor.Id.Equals(doctor.Id)).ToList();
-            return View(appointments);
             if (appointments.Count == 0)
             {
                 return View("Index");
             }
+            else return View(appointments);
+            
         }
         [Authorize(Roles ="Patient")]
         public ActionResult ShowAppointmentsPatient()
